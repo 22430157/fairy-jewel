@@ -1,296 +1,330 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fairy Jewel</title>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins', sans-serif;
+        .hero,
+        .logo,
+        header {
+            display: flex
         }
 
-        body{
-            background:linear-gradient(to bottom, #ffeef8, #f7e6ff, #fff);
-            overflow-x:hidden;
+        .card,
+        .hero {
+            overflow: hidden;
+            position: relative
         }
 
-        header{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 60px;
-            background:rgba(255,255,255,0.4);
-            backdrop-filter:blur(10px);
-            position:sticky;
-            top:0;
-            z-index:100;
-            box-shadow:0 5px 15px rgba(0,0,0,0.08);
+        .harga,
+        nav a {
+            font-weight: 700
         }
 
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:12px;
+        .btn,
+        nav a {
+            text-decoration: none
         }
 
-        .logo h2{
-            color:#c85aa6;
-            letter-spacing:2px;
+        .hero,
+        .judul,
+        footer {
+            text-align: center
         }
 
-        .logo img{
-            width:65px;
-            animation:terbang 3s infinite ease-in-out;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif
         }
 
-        @keyframes terbang{
-            0%{transform:translateY(0px);}
-            50%{transform:translateY(-8px);}
-            100%{transform:translateY(0px);}
+        body {
+            background: linear-gradient(to bottom, #ffeef8, #f7e6ff, #fff);
+            overflow-x: hidden
         }
 
-        nav a{
-            text-decoration:none;
-            margin-left:25px;
-            color:#8a3d72;
-            font-weight:bold;
-            transition:0.3s;
+        header {
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(255, 255, 255, .4);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08)
         }
 
-        nav a:hover{
-            color:#ff9bd2;
+        .logo {
+            align-items: center;
+            gap: 12px
         }
 
-        .hero{
-            height:90vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            position:relative;
-            overflow:hidden;
+        .logo h2 {
+            color: #c85aa6;
+            letter-spacing: 2px
         }
 
-        .hero::before{
-            content:"🦋";
-            position:absolute;
-            font-size:120px;
-            left:10%;
-            top:20%;
-            animation:kupu 6s infinite linear;
-            opacity:0.3;
+        .logo img {
+            width: 65px;
+            animation: 3s ease-in-out infinite terbang
         }
 
-        .hero::after{
-            content:"✨";
-            position:absolute;
-            font-size:80px;
-            right:15%;
-            bottom:20%;
-            animation:blink 2s infinite;
-            opacity:0.5;
+        @keyframes terbang {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
         }
 
-        @keyframes kupu{
-            0%{transform:translateY(0px) rotate(0deg);}
-            50%{transform:translateY(-40px) rotate(20deg);}
-            100%{transform:translateY(0px) rotate(0deg);}
+        nav a {
+            margin-left: 25px;
+            color: #8a3d72;
+            transition: .3s
         }
 
-        @keyframes blink{
-            0%{opacity:0.2;}
-            50%{opacity:1;}
-            100%{opacity:0.2;}
+        nav a:hover {
+            color: #ff9bd2
         }
 
-        .hero-text{
-            background:rgba(255,255,255,0.5);
-            padding:40px 60px;
-            border-radius:30px;
-            backdrop-filter:blur(12px);
-            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        .hero {
+            height: 90vh;
+            justify-content: center;
+            align-items: center
         }
 
-        .hero-text h1{
-            font-size:65px;
-            color:#b14f91;
-            margin-bottom:15px;
+        .hero::before {
+            content: "🦋";
+            position: absolute;
+            font-size: 120px;
+            left: 10%;
+            top: 20%;
+            animation: 6s linear infinite kupu;
+            opacity: .3
         }
 
-        .hero-text p{
-            color:#7a5670;
-            font-size:18px;
+        .card::before,
+        .hero::after {
+            content: "✨";
+            position: absolute;
+            opacity: .5
         }
 
-        .judul{
-            text-align:center;
-            margin:80px 0 40px;
-            font-size:38px;
-            color:#b14f91;
+        .hero::after {
+            font-size: 80px;
+            right: 15%;
+            bottom: 20%;
+            animation: 2s infinite blink
         }
 
-        .container{
-            width:90%;
-            margin:auto;
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:35px;
-            margin-bottom:90px;
+        @keyframes kupu {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0)
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(20deg)
+            }
         }
 
-        .card{
-            background:white;
-            border-radius:25px;
-            overflow:hidden;
-            box-shadow:0 8px 20px rgba(0,0,0,0.1);
-            transition:0.4s;
-            position:relative;
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: .2
+            }
+
+            50% {
+                opacity: 1
+            }
         }
 
-        .card:hover{
-            transform:translateY(-12px) scale(1.02);
+        .hero-text {
+            background: rgba(255, 255, 255, .5);
+            padding: 40px 60px;
+            border-radius: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .1)
         }
 
-        .card::before{
-            content:"✨";
-            position:absolute;
-            top:10px;
-            right:15px;
-            font-size:25px;
-            opacity:0.5;
+        .isi,
+        footer {
+            padding: 25px
         }
 
-        .card img{
-            width:100%;
-            height:270px;
-            object-fit:cover;
-            transition:0.5s;
+        .hero-text h1 {
+            font-size: 65px;
+            color: #b14f91;
+            margin-bottom: 15px
         }
 
-        .card:hover img{
-            transform:scale(1.08);
+        .hero-text p {
+            color: #7a5670;
+            font-size: 18px
         }
 
-        .isi{
-            padding:25px;
+        .judul {
+            margin: 80px 0 40px;
+            font-size: 38px;
+            color: #b14f91
         }
 
-        .isi h3{
-            color:#b14f91;
-            margin-bottom:12px;
+        .container {
+            width: 90%;
+            margin: auto auto 90px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px
         }
 
-        .isi p{
-            color:#666;
-            line-height:1.6;
-            font-size:14px;
+        .card {
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+            transition: .4s
         }
 
-        .harga{
-            margin-top:15px;
-            font-size:22px;
-            color:#ff4fa0;
-            font-weight:bold;
+        .card:hover {
+            transform: translateY(-12px) scale(1.02)
         }
 
-        .btn{
-            display:inline-block;
-            margin-top:18px;
-            padding:10px 20px;
-            background:linear-gradient(to right,#ff9bd2,#d88cff);
-            color:white;
-            border-radius:30px;
-            text-decoration:none;
-            transition:0.3s;
+        .card::before {
+            top: 10px;
+            right: 15px;
+            font-size: 25px
         }
 
-        .btn:hover{
-            opacity:0.8;
+        .card img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            transition: .5s
         }
 
-        footer{
-            background:#b14f91;
-            color:white;
-            text-align:center;
-            padding:25px;
-            letter-spacing:1px;
+        .card:hover img {
+            transform: scale(1.08)
+        }
+
+        .isi h3 {
+            color: #b14f91;
+            margin-bottom: 12px
+        }
+
+        .isi p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px
+        }
+
+        .harga {
+            margin-top: 15px;
+            font-size: 22px;
+            color: #ff4fa0
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff9bd2, #d88cff);
+            color: #fff;
+            border-radius: 30px;
+            transition: .3s
+        }
+
+        .btn:hover {
+            opacity: .8
+        }
+
+        footer {
+            background: #b14f91;
+            color: #fff;
+            letter-spacing: 1px
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">
-        <img src="img/logo.png" alt="Logo">
-        <h2>Fairy Jewel</h2>
-    </div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="box.html">Magic Box</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="hero-text">
-        <h1>Fairy Butterfly Jewelry</h1>
-        <p>Perhiasan elegan dengan sentuhan dunia peri dan keindahan kupu-kupu.</p>
-    </div>
-</section>
-
-<h2 class="judul">✨ Magical Collection ✨</h2>
-
-<div class="container">
-
-    <div class="card">
-        <img src="img/ring.jpg" alt="Ring">
-        <div class="isi">
-            <h3>Butterfly Diamond Ring</h3>
-            <p>
-                Cincin berlian elegan berbentuk kupu-kupu dengan detail kristal berkilau.
-                Cocok untuk tampilan feminin dan mewah.
-            </p>
-            <div class="harga">Rp 2.499.000</div>
-            <a href="#" class="btn">Shop Now</a>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+            <h2>Fairy Jewel</h2>
         </div>
-    </div>
 
-    <div class="card">
-        <img src="img/necklace.jpg" alt="Necklace">
-        <div class="isi">
-            <h3>Fairy Moon Necklace</h3>
-            <p>
-                Kalung bulan peri dengan sentuhan batu sapphire pink yang memberikan aura anggun.
-            </p>
-            <div class="harga">Rp 1.799.000</div>
-            <a href="#" class="btn">Shop Now</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="box.html">Magic Box</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Fairy Butterfly Jewelry</h1>
+            <p>Perhiasan elegan dengan sentuhan dunia peri dan keindahan kupu-kupu.</p>
         </div>
-    </div>
+    </section>
 
-    <div class="card">
-        <img src="img/bracelet.jpg" alt="Bracelet">
-        <div class="isi">
-            <h3>Crystal Butterfly Bracelet</h3>
-            <p>
-                Gelang premium dengan ukiran kupu-kupu kristal yang bersinar indah saat terkena cahaya.
-            </p>
-            <div class="harga">Rp 1.299.000</div>
-            <a href="#" class="btn">Shop Now</a>
+    <h2 class="judul">✨ Magical Collection ✨</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="img/ring.jpg" alt="Ring">
+            <div class="isi">
+                <h3>Butterfly Diamond Ring</h3>
+                <p>
+                    Cincin berlian elegan berbentuk kupu-kupu dengan detail kristal berkilau.
+                    Cocok untuk tampilan feminin dan mewah.
+                </p>
+                <div class="harga">Rp 2.499.000</div>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
         </div>
+
+        <div class="card">
+            <img src="img/necklace.jpg" alt="Necklace">
+            <div class="isi">
+                <h3>Fairy Moon Necklace</h3>
+                <p>
+                    Kalung bulan peri dengan sentuhan batu sapphire pink yang memberikan aura anggun.
+                </p>
+                <div class="harga">Rp 1.799.000</div>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/bracelet.jpg" alt="Bracelet">
+            <div class="isi">
+                <h3>Crystal Butterfly Bracelet</h3>
+                <p>
+                    Gelang premium dengan ukiran kupu-kupu kristal yang bersinar indah saat terkena cahaya.
+                </p>
+                <div class="harga">Rp 1.299.000</div>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+
     </div>
 
-</div>
-
-<footer>
-    © 2026 Fairy Jewel | Magic in Every Sparkle ✨
-</footer>
+    <footer>
+        © 2026 Fairy Jewel | Magic in Every Sparkle ✨
+    </footer>
 
 </body>
+
 </html>
